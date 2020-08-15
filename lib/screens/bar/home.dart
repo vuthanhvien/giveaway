@@ -4,6 +4,7 @@ import 'dart:math' as math;
 class HomeSreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -23,6 +24,7 @@ class HomeSreen extends StatelessWidget {
         ],
       ),
       body: ListView(
+        padding: EdgeInsets.only(bottom: 24),
         children: [
           Container(
             padding: EdgeInsets.all(12),
@@ -60,22 +62,73 @@ class HomeSreen extends StatelessWidget {
           Product(),
           Title(),
           Container(
-            height: 120.0,
+            height: 190.0,
             child: ListView.builder(
               itemCount: 5,
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int itemIndex) {
                 return Container(
-                  height: 120.0,
-                  width: 100.0,
+                  height: 190.0,
+                  width: 150.0,
                   margin: EdgeInsets.all(6),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.cyan,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12),
+                          ),
+                        ),
+                      ),
+                      Container(
+                          padding: EdgeInsets.all(12),
+                          child: Text(
+                            'Xe đẩy em bé nhỏ có trục quay',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87,
+                            ),
+                          ))
+                    ],
+                  ),
                   decoration: BoxDecoration(
-                      color: Colors.cyan,
-                      borderRadius: BorderRadius.circular(24)),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 );
               },
             ),
           ),
+          Container(
+            padding: EdgeInsets.all(24),
+            margin: EdgeInsets.only(top: 12),
+            decoration: BoxDecoration(
+              color: Colors.cyan,
+            ),
+            width: width,
+            child: Wrap(
+              children: [
+                Text(
+                  '"',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 46,
+                  ),
+                ),
+                Text(
+                  'Nếu bạn sở hữu những đồ đạc không sử dụng, hay mang đi cho., tăng những người cần nó hơn. Bên cạnh đó, bạn cũng có thể dễ dạng nhận đồ dễ dàng hơn',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
@@ -94,7 +147,10 @@ class Title extends StatelessWidget {
           Text(
             "Hàng hóa mới 99%",
             style: TextStyle(
-                fontSize: 18, fontWeight: FontWeight.bold, color: Colors.cyan),
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.cyan,
+            ),
           ),
           FlatButton(
             child: Text("Tẩt cả"),
@@ -139,16 +195,18 @@ class Product extends StatelessWidget {
                 Text(
                   'Giầy thể dục, còn mới, không cần xài nữa',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: Colors.black87,
                   ),
+                ),
+                Container(
+                  height: 5,
                 ),
                 Text(
                   'Mới mua đc 2-3 ngày, thì bố mua cái mới, thế là bỏ cmnr thôi ',
                   style: TextStyle(
                     fontSize: 12,
-                    fontWeight: FontWeight.bold,
                     color: Colors.grey,
                   ),
                 )
