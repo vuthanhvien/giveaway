@@ -265,14 +265,12 @@ class Sliders extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 315,
-      child: PageView(
-        scrollDirection: Axis.horizontal,
-        controller: PageController(
-          initialPage: 1,
-          viewportFraction: 0.6,
-        ),
-        children: [
-          Container(
+      child: PageView.builder(
+        itemCount: 6,
+        itemBuilder: (context, position) {
+          print(position);
+          return Container(
+            color: position % 2 == 0 ? Colors.pink : Colors.cyan,
             height: 315,
             width: 200,
             margin: EdgeInsets.all(6),
@@ -284,32 +282,13 @@ class Sliders extends StatelessWidget {
                 borderRadius: BorderRadius.circular(24),
               ),
             ),
-          ),
-          Container(
-            height: 315,
-            width: 180,
-            margin: EdgeInsets.all(6),
-            padding: EdgeInsets.only(bottom: 40),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.cyan,
-                borderRadius: BorderRadius.circular(24),
-              ),
-            ),
-          ),
-          Container(
-            height: 315,
-            width: 180,
-            margin: EdgeInsets.all(6),
-            padding: EdgeInsets.only(bottom: 40),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.cyan,
-                borderRadius: BorderRadius.circular(24),
-              ),
-            ),
-          ),
-        ],
+          );
+        },
+        scrollDirection: Axis.horizontal,
+        controller: PageController(
+          initialPage: 1,
+          viewportFraction: 0.6,
+        ),
       ),
     );
   }

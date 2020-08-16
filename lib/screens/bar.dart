@@ -22,7 +22,7 @@ class BarRouteState extends State<BarRoute> {
       page = HomeSreen();
     }
     if (tabIndex == 1) {
-      page = CateGreen();
+      page = CateScreen();
     }
     if (tabIndex == 2) {
       page = ChatSreen();
